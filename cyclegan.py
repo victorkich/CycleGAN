@@ -35,9 +35,9 @@ b1 = 0.5  # decay of first order momentum of gradient
 b2 = 0.999  # decay of first order momentum of gradient
 lambda_cyc = 10.0  # cycle loss weight
 lambda_id = 5.0  # identity loss weight
-checkpoint_interval = 2  # interval between saving model checkpoints
+checkpoint_interval = 10  # interval between saving model checkpoints
 sample_interval = 200  # interval between saving generator outputs
-load_model = True  # load weights from a current pre trainded model
+load_model = False  # load weights from a current pre trainded model
 
 # Losses
 criterion_GAN = torch.nn.MSELoss()
