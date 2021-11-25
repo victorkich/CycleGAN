@@ -3,8 +3,6 @@ from torchvision.utils import save_image, make_grid
 from torchvision import datasets, transforms
 from torch.optim import Adam, lr_scheduler
 from torch.autograd import Variable
-import torch.nn.functional as F
-import torch.nn as nn
 from PIL import Image
 from models import *
 from utils import *
@@ -12,7 +10,6 @@ import numpy as np
 import itertools
 import datetime
 import torch
-import math
 import time
 import os
 
