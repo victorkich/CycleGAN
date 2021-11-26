@@ -10,11 +10,11 @@ import os
 
 path = os.path.abspath(os.path.dirname(__file__))
 path_video = f"{path}/data/videos/real_moto.mp4"
-path_G_AB = f"{path}/saved_models/G_AB_100.pth"
-path_G_BA = f"{path}/saved_models/G_BA_100.pth"
+path_G_AB = f"{path}/saved_models/G_AB_300.pth"
+path_G_BA = f"{path}/saved_models/G_BA_300.pth"
 
 # Parameters
-input_shape = (3, 96, 96)  # [c, h, w]
+input_shape = (3, 196, 196)  # [c, h, w]
 n_residual_blocks = 9  # number of residual blocks in generator
 A2B = False  # filter direction
 
