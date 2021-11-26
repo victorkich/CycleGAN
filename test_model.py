@@ -9,14 +9,14 @@ import cv2
 import os
 
 path = os.path.abspath(os.path.dirname(__file__))
-path_video = f"{path}/data/videos/real_moto.mp4"
+path_video = f"{path}/data/videos/simulated_moto.mp4"
 path_G_AB = f"{path}/saved_models/G_AB_300.pth"
 path_G_BA = f"{path}/saved_models/G_BA_300.pth"
 
 # Parameters
 input_shape = (3, 196, 196)  # [c, h, w]
 n_residual_blocks = 9  # number of residual blocks in generator
-A2B = False  # filter direction
+A2B = True  # filter direction
 
 # Create a VideoCapture object
 cap = cv2.VideoCapture(path_video)
@@ -33,7 +33,7 @@ model.eval()
 
 # Define the codec and create VideoWriter object. The output is stored in 'test_model.mp4' file.
 fourcc = cv2.VideoWriter_fourcc(*'MP4V')
-out = cv2.VideoWriter('data/tests/model_test.mp4', fourcc, 24.0, (input_shape[2]*2, input_shape[1]), True)
+out = cv2.VideoWriter('data/tests/model_test_2.mp4', fourcc, 24.0, (input_shape[2]*2, input_shape[1]), True)
 
 transform = transforms.Compose([
     transforms.Resize((input_shape[1], input_shape[2])),
