@@ -54,7 +54,7 @@ for _ in tqdm(range(int(cap.get(7)))):
         fake = make_grid(fake, nrow=1, normalize=True)
 
         # Arange images along y-axis
-        image_grid = torch.cat((real, fake), 2).permute(1, 2, 0).numpy()
+        image_grid = torch.cat((real, fake), 2).permute(1, 2, 0).cpu().numpy()
 
         # Converting to BGR and uint8
         image_grid = cv2.cvtColor(image_grid, cv2.COLOR_RGB2BGR)
