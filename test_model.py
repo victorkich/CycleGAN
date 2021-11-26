@@ -47,6 +47,7 @@ for _ in tqdm(range(int(cap.get(7)))):
     if ret:
         frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
         real = transform(Image.fromarray(frame)).unsqueeze(0)
+        print(real.shape)
         fake = model(real)
 
         # Arange images along x-axis
