@@ -20,7 +20,7 @@ Tensor = torch.cuda.FloatTensor if cuda else torch.Tensor
 print("Using CUDA:", cuda)
 
 # Parameters
-input_shape = (3, 196, 196)  # [c, h, w]
+input_shape = (3, 228, 228)  # [c, h, w]
 batch_size = 4  # size of the batches
 n_residual_blocks = 9  # number of residual blocks in generator
 epoch = 0  # epoch to start training from
@@ -32,8 +32,8 @@ b1 = 0.5  # decay of first order momentum of gradient
 b2 = 0.999  # decay of first order momentum of gradient
 lambda_cyc = 10.0  # cycle loss weight
 lambda_id = 5.0  # identity loss weight
-checkpoint_interval = 25  # interval between saving model checkpoints
-sample_interval = 200  # interval between saving generator outputs
+checkpoint_interval = 50  # interval between saving model checkpoints
+sample_interval = 400  # interval between saving generator outputs
 load_model = False  # load weights from a current pre trainded model
 
 # Losses
@@ -86,7 +86,7 @@ fake_B_buffer = ReplayBuffer()
 transform = [
     transforms.Resize((input_shape[1], input_shape[2])),
     transforms.RandomCrop((input_shape[1], input_shape[2])),
-    # transforms.RandomHorizontalFlip(),
+    transforms.RandomHorizontalFlip(),
     transforms.ToTensor(),
     transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)),
 ]
